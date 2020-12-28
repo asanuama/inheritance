@@ -6,9 +6,39 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/120d3f8e53.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
+    <header>
+      <div class = "row">
+        <div class = "header-item col-md-offset-2 col-md-8">
+          <div class="logo"><%= link_to "ロゴ", root_path, class:'logolink', data: {"turbolinks" => false}%></div>
+          <div class = "header-link-item">
+            <% if user_signed_in? %>
+              <div class = "header-link-item-list">
+                <%= link_to destroy_user_session_path, method: :delete, :class => "header-link-icon" do%>
+                  <i class="fas fa-sign-out-alt"></i> ログアウト
+                <% end %>
+              </div>
+              <div class = "header-link-item-list">
+                  <i class="fas fa-user-circle"></i> マイページ
+              </div>
+            <% else%>
+              <div class = "header-link-item-list">
+                <%= link_to new_user_session_path, :class => "header-link-icon" do%>
+                  <i class="fas fa-sign-in-alt"></i> ログイン
+                <% end %>
+              </div>
+              <div class = "header-link-item-list">
+                <%= link_to new_user_registration_path, :class => "header-link-icon" do%>
+                  <i class="fas fa-user-plus"></i> 新規登録
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </header>
     <%= yield %>
   </body>
 </html>
