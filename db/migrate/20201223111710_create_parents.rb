@@ -11,8 +11,10 @@ class CreateParents < ActiveRecord::Migration[5.0]
       t.boolean :is_real_parent ,default: true
       t.date :adoption
       t.integer :decedent_id
+      t.string :name_of_father
+      t.string :name_of_mother
+      t.string :relationship
       t.text :comment
-
       t.timestamps
     end
   end

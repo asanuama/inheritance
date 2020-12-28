@@ -7,7 +7,9 @@ class CreateDecedents < ActiveRecord::Migration[5.0]
       t.date :date_of_death
       t.boolean :is_married ,default: true
       t.text :comment
-
+      t.string :name_of_father
+      t.string :name_of_mother
+      t.string :relationship
       t.timestamps
     end
   end

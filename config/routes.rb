@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'home/top'
+
+  devise_for :users
   get 'decedent/new'
 
   get 'decedent/create'

@@ -9,8 +9,10 @@ class CreateSpouses < ActiveRecord::Migration[5.0]
       t.boolean :is_alive ,default: true
       t.boolean :is_abandoned ,default: false
       t.integer :decedent_id
+      t.string :name_of_father
+      t.string :name_of_mother
+      t.string :relationship
       t.text :comment
-
       t.timestamps
     end
   end
